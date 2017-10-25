@@ -1,0 +1,21 @@
+/**
+***********************************************************************
+*				    Folha de Estilo									  *				
+***********************************************************************
+* Nome da aplicação:                                                  *
+* autor:															  *				
+***********************************************************************
+*/
+
+.starter-template {padding: 3rem 1.5rem;text-align:center;}
+
+.rodape {
+	margin: auto;
+	width: 100%;
+	bottom: 0;
+	position: fixed;
+}
+
+.rodape-right{margin-right: 3%;}
+.rodape-left{margin-left: 2%;}
+
