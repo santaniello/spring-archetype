@@ -31,6 +31,7 @@ public class UsuarioController {
 		
 	@RequestMapping("/form")
 	public ModelAndView form(Usuario usuario) {
+		logger.info("teste");
 		ModelAndView modelAndView = new ModelAndView("usuarios/form");
 		return modelAndView;
 	}

@@ -2,6 +2,7 @@ package br.com.springarchetype.confs;
 
 import java.util.Properties;
 
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -14,10 +15,27 @@ public class JpaDevConfiguration extends JpaConfiguration {
 	@Bean
 	@Override
 	public DataSource dataSource(){
-		// Obtendo datasource configurado no arquivo context.xml do tomcat 
+		//Obtendo datasource configurado no arquivo context.xml do tomcat 
 		JndiDataSourceLookup dataSource = new JndiDataSourceLookup();
 	    dataSource.setResourceRef(true);
 	    return dataSource.getDataSource("jdbc/prod");	
+	    
+		
+//		ComboPooledDataSource cpds = new ComboPooledDataSource();
+//		try {
+//			cpds.setDriverClass("com.mysql.jdbc.Driver");
+//		} catch (PropertyVetoException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		cpds.setJdbcUrl("jdbc:mysql://localhost/teste");
+//		cpds.setUser("root");
+//		cpds.setPassword("f10121426");
+//		cpds.setMinPoolSize(5);
+//		cpds.setAcquireIncrement(5);
+//		cpds.setMaxPoolSize(20);
+//		cpds.setMaxStatements(180);
+//		return cpds;
 	}
 	
 	@Bean

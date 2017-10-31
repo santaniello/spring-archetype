@@ -10,6 +10,7 @@ import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.stagemonitor.core.Stagemonitor;
 
 public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
@@ -88,7 +89,8 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
-	    super.onStartup(servletContext);
+		super.onStartup(servletContext);
+		servletContext.addListener(new MyServletContextListener());
 	    servletContext.addListener(new RequestContextListener());
 	    servletContext.setInitParameter("spring.profiles.active", "dev");
 	}	

@@ -10,12 +10,22 @@
 		</layout>
 	</appender>
 	
+	<appender name="Default.file" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/felipe/apache-tomcat-8.5.11/logs/archetype.log" />
+        <param name="append" value="true" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n" />
+        </layout>
+    </appender>
+	
 	<!-- Application Loggers -->
-	<logger name="br.com.springarchetype">
+		
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework">
 		<level value="info" />
 	</logger>
 	
-	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
 	</logger>
@@ -34,8 +44,9 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="info" />
 		<appender-ref ref="console" />
+		<appender-ref ref="Default.file" />	
 	</root>
 	
 </log4j:configuration>
